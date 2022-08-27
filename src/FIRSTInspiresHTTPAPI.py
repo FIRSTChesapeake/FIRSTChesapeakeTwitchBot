@@ -153,16 +153,12 @@ class FIRSTInspiresHTTPAPI:
 
         if tmpDistrictCode == None:
             tmpDistrictCode = "CHS"
-        
-        #27AUG22 - Raise error if AllDistrictEvents is not set!
-        if self.AllDistrictEvents == None:
-            self.logger.error("[FIRSTInspiresHTTPAPI][ERROR] AllDistrictEvents is not set!")
-            raise Exception("AllDistrictEvents is not set!")
-
-        if len(self.AllDistrictEvents) == 0:
+            
+        #27AUG22 - Fixed to use boolean logic
+        if not self.AllDistrictEvents:
             self.logger.debug("[FIRSTInspiresHTTPAPI][update_TodaysDistrictEvents] AllDistrictEvents is 0. Trying to get Events from FIRST")
             self.update_AllDistrictEvents(districtCode=tmpDistrictCode)
-        
+
         if len(self.AllDistrictEvents) > 0:
             fResult = []
 

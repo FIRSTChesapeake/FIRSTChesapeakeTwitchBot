@@ -2,6 +2,10 @@
 
 All notable changes to the project will be documented in this file.
 
+## [2.0.42] - 27AUG22
+### Changed
+- AllDistrictEvents to use List Boolean Logic
+
 ## [2.0.41] - 27AUG22
 ### Changed
 - CHSLOGLEVEL to actually use the right environment variable
