@@ -154,7 +154,7 @@ class FIRSTInspiresHTTPAPI:
         if tmpDistrictCode == None:
             tmpDistrictCode = "CHS"
             
-        #27AUG22 - Fixed to use boolean logic
+        #27AUG22 - Fixed to use boolean logic 
         if not self.AllDistrictEvents:
             self.logger.debug("[FIRSTInspiresHTTPAPI][update_TodaysDistrictEvents] AllDistrictEvents is 0. Trying to get Events from FIRST")
             self.update_AllDistrictEvents(districtCode=tmpDistrictCode)

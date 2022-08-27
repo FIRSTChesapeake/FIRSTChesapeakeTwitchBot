@@ -1,7 +1,7 @@
 # BUILD ENV
 FROM python:3.9.13-slim-buster
 
-LABEL version="2.0.41"
+LABEL version="2.0.42"
 LABEL description="Docker image of the FIRST Chesapeake Twitch Bot."
 LABEL maintainer="KingLinkTiger@gmail.com"
 
