@@ -2,6 +2,10 @@
 
 All notable changes to the project will be documented in this file.
 
+## [2.0.43] - 5MAR23
+### Changed
+- Changed all static references to the year to use dateTime to get current year.
+
 ## [2.0.42] - 27AUG22
 ### Changed
 - AllDistrictEvents to use List Boolean Logic.
