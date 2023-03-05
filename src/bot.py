@@ -134,7 +134,7 @@ class Bot(commands.Bot):
 
             if len(TodaysEvents) > 0:
                 for event in TodaysEvents:
-                    message = "Looking for the match results or schedule for " + event["name"] + "? Visit https://frc-events.firstinspires.org/"+datetime.Now().year+"/" + event["code"] + ". The Match Results will automatically be updated after each match!"
+                    message = "Looking for the match results or schedule for " + event["name"] + "? Visit https://frc-events.firstinspires.org/"+datetime.today().date().year+"/" + event["code"] + ". The Match Results will automatically be updated after each match!"
                     await ctx.send(message)
 
             # FTC
@@ -159,7 +159,7 @@ class Bot(commands.Bot):
                         for rank in rankings:
                             message = "#" + str(rank["rank"]) + ": " + str(rank["teamNumber"])
                             await ctx.send(message)
-                        await ctx.send("For full rankings visit: https://frc-events.firstinspires.org/"+datetime.Now().year+"/" + event["code"] + "/rankings#district")
+                        await ctx.send("For full rankings visit: https://frc-events.firstinspires.org/"+datetime.today().date().year+"/" + event["code"] + "/rankings#district")
                     else:
                         self.logger.debug("[cEventRankings] No ranking received!")
 
@@ -231,7 +231,7 @@ class Bot(commands.Bot):
                 self.logger.info("[cGetTodaysDistrictEvents] SUCCESS! Monitoring " + str(len(TodaysEvents)) + " events.")
 
     # Routine to run every day a little bit after midnight 
-    @routines.routine(time=datetime(year=datetime.Now().year, month=1, day=1, hour=12, minute=55))
+    @routines.routine(time=datetime(year=datetime.today().date().year, month=1, day=1, hour=12, minute=55))
     async def rDaily(self):
         self.fDaily()
 
@@ -334,7 +334,7 @@ class Bot(commands.Bot):
         self.logger.info("[rDaily] rDaily Has Finished.")
 
     # Routine to activiate Routines at the start of events
-    @routines.routine(time=datetime(year=datetime.Now().year, month=1, day=1, hour=9, minute=0))
+    @routines.routine(time=datetime(year=datetime.today().date().year, month=1, day=1, hour=9, minute=0))
     async def rStartEventDay(self):
         self.rMatchResult.start()
 
@@ -379,7 +379,7 @@ class Bot(commands.Bot):
 
         if len(TodaysEvents) > 0:
             for event in TodaysEvents:
-                message = "Looking for the match results or schedule for " + event["name"] + "? Visit https://frc-events.firstinspires.org/"+datetime.Now().year+"/" + event["code"] + ". The Match Results will automatically be updated after each match!"
+                message = "Looking for the match results or schedule for " + event["name"] + "? Visit https://frc-events.firstinspires.org/"+datetime.today().date().year+"/" + event["code"] + ". The Match Results will automatically be updated after each match!"
                 await c.send(message)
 
     #endregion 
